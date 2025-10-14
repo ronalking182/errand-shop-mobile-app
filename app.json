@@ -1,26 +1,40 @@
 {
   "expo": {
-    "name": "errand-shop-mobile-app",
-    "slug": "errand-shop-mobile-app",
+    "name": "errandshop",
+    "slug": "errandshop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "errandshopmobileapp",
+    "scheme": "errandshop",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.errandshop",
+      "infoPlist": {
+        "UIBackgroundModes": ["background-processing", "background-fetch"]
+      }
     },
     "android": {
+      "package": "com.anonymous.errandshop",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE",
+        "android.permission.WAKE_LOCK"
+      ]
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "server",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -33,7 +47,17 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-font",
+      [
+         "expo-notifications",
+         {
+           "icon": "./assets/images/notification-icon.svg",
+           "color": "#ffffff",
+           "defaultChannel": "default"
+         }
+       ],
+       "@react-native-firebase/app"
     ],
     "experiments": {
       "typedRoutes": true

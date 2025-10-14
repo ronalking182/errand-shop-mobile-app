@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497921465405",
+    "project_id": "errand-shop-messaging",
+    "storage_bucket": "errand-shop-messaging.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497921465405:android:05afc1d046a66523259e54",
+        "android_client_info": {
+          "package_name": "com.anonymous.errandshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQaJK82eTd89Y7q2q1_CfCQd7fgtcRSw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
