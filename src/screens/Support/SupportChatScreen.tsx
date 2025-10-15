@@ -303,7 +303,7 @@ export default function SupportChatScreen() {
 
   const Quick = ({ label }: { label: string }) => (
     <Pressable style={[styles.quick, { backgroundColor: "#EEF2F7" }]} onPress={() => setInput(label)}>
-      <Text style={{ color: colors.text }}>{label}</Text>
+      <Text style={{ color: colors.textOnLight }}>{label}</Text>
     </Pressable>
   );
 
@@ -349,7 +349,7 @@ export default function SupportChatScreen() {
             return (
               <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
                 <View style={[styles.orderChip, { backgroundColor: "#EAF3FF" }]}>
-                  <Text style={{ color: colors.text, fontWeight: "900" }}>Order #12345</Text>
+                  <Text style={{ color: colors.textOnLight, fontWeight: "900" }}>Order #12345</Text>
                   <View style={[styles.badge, { backgroundColor: "#22C55E" }]}><Text style={{ color: "#fff" }}>Delivered</Text></View>
                 </View>
                 <Text style={{ color: colors.sub, marginTop: 6 }}>3 items • $24.47</Text>

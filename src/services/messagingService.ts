@@ -184,7 +184,7 @@ class MessagingService {
   async getChatRooms(userId: string): Promise<ChatRoom[]> {
     try {
       const { apiService } = await import('./apiService');
-      const response = await apiService.getChatRooms(userId);
+      const response = await apiService.getChatRooms();
       
       if (response.success && response.data) {
         return response.data.map(room => ({

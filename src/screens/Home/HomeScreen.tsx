@@ -14,12 +14,12 @@ import {
   View,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useMessageStore } from "../../hooks/useMessageStore";
 import { useNavigationAdapter } from "../../hooks/useNavigationAdapter";
 import { useProfile } from "../../hooks/useProfile";
 import { apiService } from "../../services/apiService";
 import { useCartStore } from "../../store/cart.store";
 import { useProductStore } from '../../store/product.store';
-import { useMessageStore } from "../../hooks/useMessageStore";
 import { useTheme } from "../../theme/ThemeProvider";
 interface Product {
   id: string;
@@ -330,11 +330,11 @@ export default function HomeScreen() {
         </View>
         
         <View style={styles.headerRight}>
-          <IconBadge 
+          {/* <IconBadge 
             icon="notifications-outline" 
             count={3} 
             onPress={() => navigation.navigate("Notifications")}
-          />
+          /> */}
           <IconBadge 
             icon="chatbubble-ellipses-outline" 
             count={unreadAdminMessages > 0 ? unreadAdminMessages : undefined}
@@ -400,7 +400,7 @@ export default function HomeScreen() {
         />
 
         {/* PROMO CARD */}
-        <View style={[styles.promo, { backgroundColor: colors.brand }]}>
+        {/*<View style={[styles.promo, { backgroundColor: colors.brand }]}>
           <View>
             <Text style={styles.promoTitle}>Fresh Deals!</Text>
             <Text style={styles.promoSub}>Up to 30% off on fresh produce</Text>
@@ -411,7 +411,7 @@ export default function HomeScreen() {
           <View style={styles.promoBadge}>
             <Ionicons name="leaf" size={20} color="#fff" />
           </View>
-        </View>
+        </View>*/}
 
         {/* POPULAR HEADER */}
         <View style={styles.sectionHead}>

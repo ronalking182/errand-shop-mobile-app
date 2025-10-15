@@ -578,8 +578,8 @@ export default function OrdersListScreen() {
                     </Pressable>
                   )}
                   {actions.includes("reorder") && (
-                    <Pressable style={[styles.greyBtn, { backgroundColor: "#F3F4F6" }]}>
-                      <Text style={{ color: colors.text, fontWeight: "800" }}>Reorder</Text>
+                    <Pressable style={[styles.greyBtn, { backgroundColor: "#F3F4F6" }]}> 
+                      <Text style={{ color: "#111827", fontWeight: "800" }}>Reorder</Text>
                     </Pressable>
                   )}
                   {actions.includes("support") && (
@@ -587,7 +587,7 @@ export default function OrdersListScreen() {
                       style={[styles.greyBtn, { backgroundColor: "#F3F4F6" }]}
                       onPress={() => router.push("/support/chat")}
                     >
-                      <Text style={{ color: colors.text, fontWeight: "800" }}>Support</Text>
+                      <Text style={{ color: "#111827", fontWeight: "800" }}>Support</Text>
                     </Pressable>
                   )}
                 </View>
