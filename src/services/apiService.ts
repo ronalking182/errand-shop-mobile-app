@@ -5,16 +5,14 @@ const USE_MOCK = process.env.EXPO_PUBLIC_USE_MOCK === 'true';
 console.log('Environment variable EXPO_PUBLIC_USE_MOCK:', process.env.EXPO_PUBLIC_USE_MOCK);
 console.log('USE_MOCK value:', USE_MOCK);
 
-// Fix the environment variable by manually adding the colon if missing
-let apiUrl = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:9090';
+// Default to production backend, allow env override for development
+const DEFAULT_API = 'https://errand-shop-backend.onrender.com'; // no trailing slash
+let apiUrl = (process.env.EXPO_PUBLIC_API_URL || '').trim() || DEFAULT_API;
 
-if (apiUrl.includes('localhost9090')) {
-  apiUrl = apiUrl.replace('localhost9090', 'localhost:9090');
-}
-// Add /api/v1 to the base URL for API endpoints
+// All app endpoints are under /api/v1
 const API_BASE_URL = `${apiUrl}/api/v1`;
-// Paystack endpoints use different base URL (no /api/v1 prefix)
-const PAYSTACK_BASE_URL = `${apiUrl}`;
+// Paystack endpoints are exposed by our backend too; keep same origin
+const PAYSTACK_BASE_URL = apiUrl;
 
 interface ApiResponse<T> {
   success: boolean;
@@ -783,7 +781,7 @@ class ApiService {
   async testConnection(): Promise<ApiResponse<any>> {
     try {
       console.log('Testing connection to:', API_BASE_URL);
-      const response = await axios.get(API_BASE_URL, { timeout: 5000 });
+      const response = await axios.get(`${API_BASE_URL}/health`, { timeout: 5000 });
       console.log('Connection successful:', response.status);
       return {
         success: true,
